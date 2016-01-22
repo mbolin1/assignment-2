@@ -3,32 +3,82 @@
 
 <HEAD>
 	<TITLE>Matt Evett</TITLE>
+	<STYLE>
+		html, body {
+			margin-left: 0;
+			margin-right: 0;
+			height: 100%;
+			overflow: hidden;
+		}
+		.top-pane {
+			float: top;
+			position: relative;
+			text-align: center;
+			padding-bottom: 5px;
+			background-color: grey;
+			color: #fafffd;
+		}
+		.top-pane h1 {
+			font-family: Tahoma, Geneva, sans-serif;
+			font-size: 300%;
+		}
+		#middle-pane {
+			padding-top: 10px;
+			height: 72%;
+			overflow:scroll;
+		}
+		.bottom-pane {
+			float: bottom;
+			text-align: center;
+			padding: 5px;
+			background-color: grey;
+			color: #fafffd;
+		}
+		.portrait{
+			width:172px; 
+			height:240px;
+			float: left;
+			margin-left: 10px;
+			margin-right: 10px;
+			margin-bottom: 10px;
+		}
+		.push-for-portrait{
+			margin-left: 202px;
+		}
+		.bgcolor{
+			background-color: #c8ccca;
+		}
+		.
+	</STYLE>
 </HEAD>
-	<BODY color="#fafffd">
-		<H1>Matthew P. Evett</H1>
-		<HR>
-		<div>
-			<a href="MattsFace2006.jpg"><img src="Images/Matt Evett hs.jpg" style="width:172px; height:240px;float:left; margin-right:10" ></a> 
-			<div style="margin-left: 192;">
-				<h2>Position:</h2>
-				<p>Professor, <a href="http://www.emich.edu/compsci">Dept. of Computer Science</a>,
-				  <a href="http://www.emich.edu">Eastern Michigan University</a></p>
+	<BODY class="bgcolor">
+		<div class="top-pane">
+			<H1>Matthew P. Evett</H1>
+			<p>Professor, 
+				<a href="http://www.emich.edu/compsci">Dept. of Computer Science</a>,
+				<a href="http://www.emich.edu">Eastern Michigan University</a>
+			</p>
+		</div>
+		<div id="middle-pane">
+			<a href="MattsFace2006.jpg">
+				<img src="Images/Matt Evett hs.jpg" class="portrait" >
+			</a> 
+			<div class="push-for-portrait">
 				<h2>E-mail:</h2>
 				<a href="mailto:mevett@emich.edu">mevett@emich.edu</a>
-			</div>
-		</div>
-		<div style="float: left;">
-		<h2>Address/Phone:</h2>
-			<address>
-				<pre>
+						<h2>Address/Phone:</h2>
+				<address>
+					<pre>
 Dept. Computer Science
 511 Pray Harold Bldg.
 Eastern Michigan University
 Ypsilanti, MI  48197   USA
 Phone: (734) 487-1227,  Fax: (734) 487-6824
-				</pre>
-			</address>
-		</div>
+					</pre>
+				</address>
+			</div>
+		
+		<hr/>
 		<h2>Office Hours:</h2> 
 		<ul>
 		  <li>M/W, 10:00-2:00</li>
@@ -84,7 +134,7 @@ Phone: (734) 487-1227,  Fax: (734) 487-6824
 			to environmental simulations. </p>
 		<p><a href="BiologyLabs/index.html">BiologyLabs</a>: a set of web-based biology experiments implemented in Java.</p>
 		<p><a href="Research/cyberlab_equation_editor.html">CyberLab Equation Editor</a>: component of the CyberLab system for managing the mathematical model underlying scientific simulations.</p>
-		<h4>
+
 		  <p> 
 		  <h4>Recent funded research:</h4>
 		  <a href="Research/SFWMD/">Parallelization of the Canal Subsystem of the Everglades 
@@ -135,10 +185,11 @@ Phone: (734) 487-1227,  Fax: (734) 487-6824
 		href="http://www.acbl.org/">tournament contract bridge</a>,  <a href="cookieRecipe.jpg">cooking</a>, <a href="Images/photo_Asterix_nov06.JPG">kitties</a>. <a href="Downloads">
 		  <h2>Downloads</h2>
 		  </a> 
-		  <Address>
-		  Last modified: "September 29 , 2015  11:21:14 by evett"
-		  </Address>
-		</h4>
+		  </div>
+		  <div class="bottom-pane">
+		  <p>Last modified: "September 29 , 2015  11:21:14 by evett"</p>
+		  </div>
+
 	</BODY>
 <HTML>
 <!-- WARNING: The remaining lines in this file are for use with the emacs
