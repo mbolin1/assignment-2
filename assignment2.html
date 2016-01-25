@@ -1,202 +1,777 @@
 <!DOCTYPE html>
-<!--*************************************************************************-->
-
+<HTML>
 <HEAD>
+	<meta charset="UTF-8">
 	<TITLE>Matt Evett</TITLE>
 	<STYLE>
-		html, body {
-			margin-left: 0;
-			margin-right: 0;
+		* {
+			margin: 0;
+		}
+		
+		.left-pane {
+			float: left;
+			width: 220px;
+			/*border: 1px solid black;*/
+		}
+		.main-pain {
+			margin-left: 220px;
 			height: 100%;
-			overflow: hidden;
+			background-color: #c8ccca;
 		}
+		html, body{
+			height: 100%;
+			background-color: #787A79;
+		}
+		
+		
+		.collapse {
+			padding-left: 10px;
+			padding-right: 10px;
+			display: inline-block;
+			color: white; /* was white with gradient black without*/
+			/*http://www.w3schools.com/css/css3_gradients.asp*/
+			background: radial-gradient(#006633,#000000);
+			display:block;
+		}
+		
+		/*hides the checkbox*/
+		.collapse + input{
+			display:none;
+		}
+		
+		/*initial state doesn't show items*/
+		.collapse + input + *{
+			display:none;
+		}
+		
+		/*when you click on the lettering expands menu*/
+		.collapse + input:checked + *{
+			background-color:grey;
+			display:block;
+		}
+		
+		
 		.top-pane {
-			float: top;
-			position: relative;
+			color: white;
 			text-align: center;
+			background-color: #006633;
+			/*#505150;*/
 			padding-bottom: 5px;
-			background-color: grey;
-			color: #fafffd;
+			
+			/*http://www.w3schools.com/cssref/playit.asp?filename=
+			playcss_background-size&preval=contain*/
+			
+			background-image: 
+			url('http://s3.amazonaws.com/makexyz/ilogos/emu_logo.png');
+			background-repeat:no-repeat;
+			background-size:contain;
 		}
+		
 		.top-pane h1 {
 			font-family: Tahoma, Geneva, sans-serif;
-			font-size: 300%;
 		}
-		#middle-pane {
-			padding-top: 10px;
-			height: 72%;
-			overflow:scroll;
+		.top-pane a {
+			color: white;
 		}
+		
+		.logo {
+			text-align: left;
+			top: 0;
+			left: 0;
+		}
+		
 		.bottom-pane {
 			float: bottom;
-			text-align: center;
-			padding: 5px;
-			background-color: grey;
-			color: #fafffd;
+			margin-top: 20px;
+			margin-left: 5px;
+		}
+		.bottom-pane a {
+			color: black;
+			text-decoration: none;
 		}
 		.portrait{
-			width:172px; 
-			height:240px;
-			float: left;
-			margin-left: 10px;
-			margin-right: 10px;
+			padding-top: 5px;
+			width: 210px; 
+			height: 280px;
 			margin-bottom: 10px;
 		}
 		.push-for-portrait{
-			margin-left: 202px;
+			/*margin-left: 192px;*/
 		}
-		.bgcolor{
-			background-color: #c8ccca;
+		
+		.expandable {
+			margin:0;
 		}
-		.
+		
+		.expandable strong{
+			/*
+			  using user-select by itself 
+			  did not work so instead I 
+			  added them individually.
+			*/
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			font-size: 1.5em;
+			margin-top: .83em;
+			margin-bottom: .83em;
+			
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		.expandable th {
+			text-align: left;
+		}
+		.expandable p {
+			/*keeps menus looking 'together'*/
+			padding-left: 5px;
+			text-align: left;
+			margin: 0;
+		}
+		
+		.expandable table {
+			padding-left: 5px;
+		}
+		
+		.expandable h2, h4{
+			/*only needed for abandoned text-align method*/
+			padding-left: 5px;
+			text-align: left;
+		}
+		.info-pane {
+			margin-left: 5px;
+		}
+		.info-pane p {
+		
+		}
 	</STYLE>
 </HEAD>
-	<BODY class="bgcolor">
+	<BODY>
+		<!-- Top Pane -->
 		<div class="top-pane">
-			<H1>Matthew P. Evett</H1>
-			<p>Professor, 
-				<a href="http://www.emich.edu/compsci">Dept. of Computer Science</a>,
-				<a href="http://www.emich.edu">Eastern Michigan University</a>
-			</p>
-		</div>
-		<div id="middle-pane">
-			<a href="MattsFace2006.jpg">
-				<img src="Images/Matt Evett hs.jpg" class="portrait" >
-			</a> 
-			<div class="push-for-portrait">
-				<h2>E-mail:</h2>
-				<a href="mailto:mevett@emich.edu">mevett@emich.edu</a>
-						<h2>Address/Phone:</h2>
-				<address>
-					<pre>
-Dept. Computer Science
-511 Pray Harold Bldg.
-Eastern Michigan University
-Ypsilanti, MI  48197   USA
-Phone: (734) 487-1227,  Fax: (734) 487-6824
-					</pre>
-				</address>
-			</div>
+				<H1>Matthew P. Evett</H1>
+				<p>
+					<strong>Professor</strong>, 
+					<a href="http://www.emich.edu/compsci">
+						Dept. of Computer Science
+					</a>,
+					<a href="http://www.emich.edu">
+						Eastern Michigan University
+						</a>
+				</p>
+		</div> <!-- close Top Pane -->
 		
-		<hr/>
-		<h2>Office Hours:</h2> 
-		<ul>
-		  <li>M/W, 10:00-2:00</li>
-		  <li>Friday 1:00-3:00</li>
-		  <li>I will usually be available via Skype at these times, as well</li>
-		</ul>
-		<p> You can drop by my office and usually I  will be able, and happy, to talk. 
-		  Still, if you come during times other than my office hours, I may not be able 
-		  to see you. Always feel free to contact me to make an appointment (preferably 
-		via e-mail). 
-		<hr>
-		  <!--  <HR> -->
-		  <!--  <h2>Conferences and Meetings</h2> -->
-		  <!--  <a href="FLAIRS99-EC/">FLAIRS-99 Special Track on Evolutionary Computation</a> -->
-		<h2>Courses:</h2>
-		<h3><a href="DataStructures/index.html">COSC311  Algorithms and Data Structures</a><a href="OS/index.html"></a>, <a href="OS/index.html">COSC423 Operating Systems</a>, <a href="SoftwareEngineering481/syllabusW16.html">COSC481/581 Software Engineering</a></h3>
-
-		<h4>  <a href="COSC101/index.html">COSC101 Computer Science Concepts and Practical Applications</a>, 
-
-		<a href="cosc111/index.html">COSC 111 Introduction to Programming</a>,
-		 <a href="AnimationProgramming/index.html">COSC179 Computer Animation Programming</a>, 
-		   <a href="COSC211/index.html">COSC 211 Programming Data Structures</a>,
-		 <a href="cosc231/syllabus.html">COSC231 Internet-Based Computing</a>,
-		<a href="ProgrammingLanguages/index.html">COSC 341 Programming Languages</a>, 
-			<a href="WebProgramming/index.html">COSC 436/592 Web Programming</a>,
-		   <a href="WebProgramming/index.html">COSC 479/592 Web Programming for Linguists</a>, 
-		  <a href="GraphicsCourse/index.html">COSC 456/556 Computer Graphics/Advanced Computer Graphics</a>, 
-		  <a href="GameProgramming/index.html">COSC457 Computer Game Programming</a>, 
-		 <a href="AI/index.html">COSC 461/561 Heuristic Programming and Artificial Intelligence</a>, 
-		<a href="GraphicsAdvanced/index.html">COSC556 Advanced Computer Graphics</a>,
-		   <a href="BioinformaticsTools/index.html">COSC 576 Tools for Bioinformatics</a>, 
-		<a href="OSgrad/index.html">COSC 623 Advanced Operating Systems</a>, 
-		  <a href="E-Commerce/index.html">COSC 631 E-Commerce</a>,
-		<a href="AutomatedReasoning/syllabus.html">COSC661 Automated Reasoning</a>,
+		<!-- Left Pane -->
+		<div class="left-pane">
+		
 			
-		<a href="JavaCourse/java-syllabusW01.html">COSC   379 Java Programming</a>, 
-		<a href="ECCourse/index.html">COSC479 and COSC592 Evolutionary Computation</a>, 
-		<a href="JavaCourse/index.html">Introduction to Java GUIs</a>
-		</h4>
-		<h4>Old Courses: <a href="GraphicsCourse/index_1998.html">COT4930 (was CAP4700), 
-		  Computer Graphics Methods</a> <a href="cap6635/cap6635.html">CAP6635 Artificial 
-		  Intelligence</a>, <a href="PDAI/index.html">COT6930 Parallel and Distributed 
-		  Aritificial Intelligence</a>, <a href="cap4630/cap4630.html">CAP4630 Introduction 
-		  to Artificial Intelligence</a>, <a href="IntroProgC/index.html">COP2212 Introduction 
-		  to Programming, in C</a> </h4>
-		  <HR>
-		  <h2>Research Interests:</h2>
+			 
+			 <!-- Info pane -->
+			<div class="info-pane">
+				<a href="http://www.emunix.emich.edu/~evett/Images/Matt%20Evett%20hs.jpg">
+					<img class="portrait" src="http://www.emunix.emich.edu/~evett/Images/Matt%20Evett%20hs.jpg" alt="Matt Evett"/>
+				</a> 
+				<h4>E-mail:</h4>
+				<p>
+					<a href="mailto:mevett@emich.edu">mevett@emich.edu</a>
+					<br/>
+				</p>
+				<h4>Address/Phone:</h4>
+				<address>
+					<p>
+						Dept. Computer Science
+						<br/>
+						511 Pray Harold Bldg.
+						<br/>
+						Eastern Michigan University
+						<br/>
+						Ypsilanti, MI  48197   USA
+						<br/>
+						Phone: (734) 487-1227
+						<br/>
+						Fax: (734) 487-6824
+					</p>
+				</address>
+				<br/>
+				<a href="http://www.emunix.emich.edu/~evett/Downloads">
+					<h2>Downloads</h2>
+				</a>
+		</div><!--close Bottom pane -->
+			
+			 <!-- Bottom pane -->
+			 <div class="bottom-pane">
+				 Last modified: January 23 , 2016
+				 <br/>
+				 By: 
+				 <a href="https://goo.gl/gr1liW">Super Secret Coder</a>
+			 </div> <!--close Bottom pane -->
+		 </div> <!-- close Left pane -->
+		 
+		 <!-- Main Pain-->
+		 <div class="main-pain">
+				
+			<!-- expandable menu -->
+			<div class="expandable">
+			
+				<!-- Courses -->
+				<label class="collapse" for="_1">
+					<strong>Courses</strong>
+				</label>
+				<input id="_1" type="checkbox" checked />
+				<div>
+					<table>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/COSC101/index.html">
+									COSC 101
+								</a>
+							</td>
+							<td>
+								 Computer Science Concepts and Practical 
+								 Applications
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/cosc111/index.html">
+									COSC 111
+								</a>
+							</td>
+							<td>
+								Introduction to Programming
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/AnimationProgramming/index.html">
+									COSC 179
+								</a> 
+							</td>
+							<td>
+								Computer Animation Programming
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/COSC211/index.html">
+									COSC 211
+								</a>
+							</td>
+							<td>
+								Programming Data Structures
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/cosc231/syllabus.html">
+									COSC 231
+								</a>
+							</td>
+							<td>
+								Internet-Based Computing
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/DataStructures/index.html">
+									COSC 311
+								</a>
+							</td>
+							<td>
+								Algorithms and Data Structures
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/ProgrammingLanguages/index.html">
+									COSC 337
+								</a>
+							</td>
+							<td>
+								Programming Languages
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/JavaCourse/java-syllabusW01.html">
+									COSC 379
+								</a>
+							</td>
+							<td>
+								Java Programming
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/OS/index.html">
+									COSC 423 
+								</a>
+							</td>
+							<td>
+								Operating Systems
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/WebProgramming/index.html">
+									COSC 436/592
+								</a>
+							</td>
+							<td>
+								Web Programming
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/GraphicsCourse/index.html">
+									COSC 456/556 
+								</a>
+							</td>
+							<td>
+								Computer Graphics/Advanced Computer Graphics
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/GameProgramming/index.html">
+									COSC 457 
+								</a>
+							</td>
+							<td>
+								Computer Game Programming
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/AI/index.html">
+									COSC 461/561 
+								</a>
+							</td>
+							<td>
+								Heuristic Programming and Artificial 
+								Intelligence
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/WebProgramming/index.html">
+									COSC 479/592
+								</a>
+							</td>
+							<td>
+								Web Programming for Linguists
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/SoftwareEngineering481/syllabusW16.html">
+									COSC 481/581 
+								</a>
+							</td>
+							<td>
+								Software Engineering
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/GraphicsAdvanced/index.html">
+									COSC 556 
+								</a>
+							</td>
+							<td>
+								Advanced Computer Graphics
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/BioinformaticsTools/index.html">
+									COSC 576 
+								</a>
+							</td>
+							<td>
+								Tools for Bioinformatics
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/E-Commerce/index.html">
+									COSC 631 
+								</a>
+							</td>
+							<td>
+								E-Commerce
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/OSgrad/index.html">
+									COSC 633 
+								</a>
+							</td>
+							<td>
+								Advanced Operating Systems
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/AutomatedReasoning/syllabus.html">
+									COSC 661 
+								</a>
+							</td>
+							<td>
+								Automated Reasoning
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/ECCourse/index.html">
+									COSC 668
+								</a>
+							</td>
+							<td>
+								Evolutionary Computation
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/JavaCourse/index.html">
+									Other
+								</a>
+							</td>
+							<td>
+								Introduction to Java GUIs
+							</td>
+						</tr>
+						
+					</table>
+				</div>
 
-		<p>Computer game design and implementation, User-Interface Design in web applications, Applications of evolutionary computation, especially genetic programming. Domains 
-			of particular interest include software reliability and financial market analysis. 
-			Applications of massive parallelism to paradigms of artificial intelligence, knowledge 
-			representation, case-based design, search. Applications of distributed computing 
-			to environmental simulations. </p>
-		<p><a href="BiologyLabs/index.html">BiologyLabs</a>: a set of web-based biology experiments implemented in Java.</p>
-		<p><a href="Research/cyberlab_equation_editor.html">CyberLab Equation Editor</a>: component of the CyberLab system for managing the mathematical model underlying scientific simulations.</p>
+				<!-- Old Courses -->
+				<label class="collapse" for="_2">
+					<strong>Old Courses</strong>
+				</label>
+				<input id="_2" type="checkbox"/>
+				<div>
+					<table>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/cap4630/cap4630.html">
+									CAP 4630 
+								</a>
+							</td>
+							<td>
+								Introduction to Artificial Intelligence
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/cap6635/cap6635.html">
+									CAP 6635 
+								</a>
+							</td>
+							<td>
+								Artificial Intelligence
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/IntroProgC/index.html">
+									COP 2212 
+								</a>
+							</td>
+							<td>
+								Introduction to Programming, in C
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/GraphicsCourse/index_1998.html">
+									COT 4930
+								</a> 
+							</td>
+							<td>
+								Computer Graphics Methods
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="http://www.emunix.emich.edu/~evett/PDAI/index.html">
+									COT 6930 
+								</a>
+							</td>
+							<td>
+								Parallel and Distributed Aritificial 
+								Intelligence
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				<!-- Office hours -->
+				<label class="collapse" for="_3">
+					<strong>Office Hours</strong> 
+				</label>
+				<input id="_3" type="checkbox"/>
+				<div>
+					<table>
+						<tr>
+							<th>Monday</th>
+							<th>10:00 am - 2:00 pm</th>
+						</tr>
+						<tr>
+							<th>Wednesday</th>
+							<th>10:00 am - 2:00 pm</th>
+						</tr>
+						<tr>
+							<th>Friday</th>
+							<th>1:00 pm - 3:00 pm</th>
+						</tr>
+					</table>
+					<br/>
+					<!-- added link to skype in case   -->
+					<!-- they don't know what skype is -->
+					<p>
+						I will usually be available via 
+							<a href="http://www.skype.com/en/">Skype</a> 
+							at these times, as well
+					</p>
+					<br/>
+					<p>
+						You can drop by my office and usually I  will be able, 
+						and happy, to talk. Still, if you come during times 
+						other than my office hours, I may not be able to see 
+						you. Always feel free to contact me to make an 
+						appointment (preferably via e-mail). 
+					</p>
+				</div> <!-- close Office Hours -->
+			
+				<!-- Research -->
+				<label class="collapse" for="_4">
+					<strong>Research Interests</strong>
+				</label>
+				<input id="_4" type="checkbox"/>
+				<div>
+					<p>	
+						Computer game design and implementation, User-Interface 
+						Design in web applications, Applications of 
+						evolutionary computation, especially genetic 
+						programming. Domains of particular interest include
+						software reliability and financial market analysis. 
+						Applications of massive parallelism to paradigms of 
+						artificial intelligence, knowledge representation, 
+						case-based design, search. Applications of distributed 
+						computing to environmental simulations.
+					</p>
+						<br/>
+					<ul>
+						<li>
+							<a href="http://www.emunix.emich.edu/~evett/BiologyLabs/index.html">
+								BiologyLabs
+							</a>
+							: a set of web-based biology experiments implemented in 
+							Java.
+						</li>
+						<br/>
+						<li>
+							<a href="http://www.emunix.emich.edu/~evett/Research/cyberlab_equation_editor.html">
+								CyberLab Equation Editor
+							</a>
+							: component of the CyberLab system for managing the 
+							mathematical model underlying scientific simulations.
+						</li>
+					</ul>
+					<br/>
+					
+						<h4>Recent funded research:</h4>
+					<p>
+						<a href="http://www.emunix.emich.edu/~evett/Research/SFWMD/">
+							Parallelization of the Canal Subsystem of the 
+							Everglades Landscape Model
+						</a>. 
+					</p>
+				
+				</div> <!-- close Research -->
+					
+				<!-- Education -->
+				<label class="collapse" for="_5">
+					<strong>Education</strong>
+				</label>
+				<input id="_5" type="checkbox"/>
+				<div>
+					<img style="display: block" src="http://www.emunix.emich.edu/~evett/Images/joel-scroll.gif" alt="joel scroll"/> 
+					<p>
+						<a href="http://www.emunix.emich.edu/~evett/Images/matt.gif">Ph.D.</a>, 
+						Computer Science, 
+						<a href="http://www.umd.edu">
+							University of Maryland
+						</a>
+						, 1994. 
+					<br/>
+						Sc.B., Computer Science, 
+						<a href="http://www.brown.edu">
+							Brown University
+						</a>, 
+						1984.
+					</p>
+				</div> <!-- close Education -->
+					
+				<!-- Publications -->
+				<label class="collapse" for="_6">
+					<strong>Publications</strong>
+				</label>
+				<input id="_6" type="checkbox"/>
+				<div>
+				
+					<p>
+						<a href="http://www.emunix.emich.edu/~evett/publications.html">
+							<img src="http://www.emunix.emich.edu/~evett/Images/books.gif" alt="books"/>
+						</a> 
+					</p>
+					<ul>
+						<li> 
+							<a href="http://www.emunix.emich.edu/~evett/Publications/gp98-nm.pdf">
+								T. Fernandez and M. Evett, "Improving the 
+								Discovery of Numeric Constants in GP", <i>Genetic 
+								Programming 1998: Proceedings of the Third 
+								Annual Conference</i>, Koza <i>et al</i>, 
+								editors, Morgan Kaufmann, 1998.
+							</a> 
+						</li>
+						<br/>
+						<li>
+							<a href="http://www.emunix.emich.edu/~evett/Publications/gp98-se.pdf">
+								M.Evett, T.Khoshgoftar, P.Chien and E.Allen, 
+								"GP-based software quality prediction",<i>Genetic 
+								Programming 1998: Proceedings of the Third Annual 
+								Conference</i>, Koza <i>et al</i>, editors, 
+								Morgan Kaufmann, 1998.
+							</a>
+						</li>
+						<br/>
+						<li>
+							R. France, M. Evett and E. Grant, "Towards 
+							Semantic-Based Object-Oriented CASE Tools", 
+							<em>Proceedings Automated 
+							Software Engineering --- ASE'97, 12th IEEE
+							International Conference</em>, IEEE, 1997. 
+						</li>
+						<br/>
+						<li>
+							Y. Xu and M. Evett, "Parallelization of the canal 
+							subsystem of the Everglades Landscape Model",
+							technical report TR-CSE-97-42, Dept. Computer 
+							Science & Engineering, Florida Atlantic Univ., 
+							1997. 
+						</li>
+						<br/>
+						<li> 
+							<a href="http://www.emunix.emich.edu/~evett/Publications/PRAstar.ps.Z"> 
+								Evett, M.P., Hendler, J.A., Mahanti, 
+								A. and Nau, D. "PRA*: Massively Parallel Heuristic 
+								Search," <i>J. Parallel and Distributed Computing
+								</i>, 25, No.2 (March), pp. 133-143, 1995.
+							</a> 
+							<a href="http://www.emunix.emich.edu/~evett/Publications/PRAstar-figs.tar.Z">
+								[Figures for that paper.]
+							</a> 
+						</li>
+						<br/>
+						<li> 
+							Evett, M.P., Hendler, J.A. and Spector, L. "Knowledge
+							Representation on the Connection Machine," 
+							<em>Journal of Parallel and Distributed Computing 
+							(JPDC)</em> Vol. 22(2), Aug. 1994, pp 168-184. 
+						</li>
+						<br/>
+					</ul>
+					<p>
+						<em>
+							<a href="http://www.emunix.emich.edu/~evett/publications.html">
+								A Fuller List of Publications
+							</a>
+						</em>
+					</p>
+				
+				</div><!-- close publications -->
+					
+				<!-- Professional Memberships -->
+				<label class="collapse" for="_7">
+					<strong>Professional Memberships</strong>
+				</label>
+				<input id="_7" type="checkbox"/>
+				<div>
+					<ul>
+						<li>
+							<a href="http://www.aaai.org">
+								American Association for Artificial Intelligence
+							</a>
+						</li>
+						<li>
+							<a href="http://www.acm.org">
+								ACM
+							</a>
+						</li>
+						<li>
+							<a href="http://www.ieee.org">
+								IEEE
+							</a>
+						</li>
+						<li>
+							<a href="http://www.upe.org">
+								Upsilon Pi Epsilon
+							</a>
+						</li>
+					</ul>
+				</div> <!-- close Professional Memberships -->
+					
+				<!-- outside interests -->
+				<label class="collapse" for="_8">
+					<strong>Outside Interests</strong>
+				</label>
+				<input id="_8" type="checkbox"/>
+				<div>
+					<ul>
+						<li>
+							<a href="http://www.tu.org">
+								Fly-fishing
+							</a>
+						</li>
+						<li>
+							Baseball (
+							<a href="http://www.scoresheet.com">
+								fantasy
+							</a>&
+							<a href="http://www.mlb.com">Real</a>
+							)
+						</li>
+						<li>
+							<a href="http://www.emunix.emich.edu/~evett/BoardGaming.html">
+								strategic board-games
+							</a>(
+							<a href="http://www.boardgamegeek.com">
+								boardgamegeek.com
+							</a>)
+						</li>
+						<li>
+							<a href="http://www.acbl.org/">
+								tournament contract bridge
+							</a>
+						</li>
+						<li>
+							<a href="http://www.emunix.emich.edu/~evett/cookieRecipe.jpg">
+								cooking
+							</a>
+						</li>
+						<li>
+							<a href="http://www.emunix.emich.edu/~evett/Images/photo_Asterix_nov06.JPG">
+								kitties
+							</a>
+						</li>
+					</ul>
+				</div>	<!-- close outside interests -->		
 
-		  <p> 
-		  <h4>Recent funded research:</h4>
-		  <a href="Research/SFWMD/">Parallelization of the Canal Subsystem of the Everglades 
-		  Landscape Model</a>. 
-		  <h2>Education:</h2>
-		  <img src="Images/joel-scroll.gif" align=left> <a href="Images/matt.gif">Ph.D.</a>, 
-		  Computer Science, <a href="http://www.umd.edu">University of Maryland</a>, 1994.
-		  <p> Sc.B., Computer Science, <a href="http://www.brown.edu">Brown University</a>, 
-			1984. 
-		  <h2>Dissertation Research:</h2>
-		  <a href="http://www.cs.umd.edu/projects/plus/Parka/parka.html">PARKA: A System 
-		  for Massively Parallel Knowledge Representation</a>
-		  <p> 
-		  <h2>Some of My Publications:</h2>
-		  <a href="publications.html"><img src="Images/books.gif" align=left></a> 
-		  <p> <a href="Publications/gp98-nm.pdf">T. Fernandez and M. Evett, "Improving 
-			the Discovery of Numeric Constants in GP", <i>Genetic Programming 1998: Proceedings 
-			of the Third Annual Conference</i>, Koza <i>et al</i>, editors, Morgan Kaufmann, 
-			1998.</a> 
-		  <p> <a href="Publications/gp98-se.pdf">M.Evett, T.Khoshgoftar, P.Chien and E.Allen, 
-			"GP-based software quality prediction",<i>Genetic Programming 1998: Proceedings 
-			of the Third Annual Conference</i>, Koza <i>et al</i>, editors, Morgan Kaufmann, 
-			1998.</a> 
-		  <p> R. France, M. Evett and E. Grant, "Towards Semantic-Based Object-Oriented 
-			CASE Tools", <i>Proceedings Automated Software Engineering --- ASE'97, 12th 
-			IEEE International Conference</i>, IEEE, 1997. 
-		  <p> Y. Xu and M. Evett, "Parallelization of the canal subsystem of the Everglades 
-			Landscape Model", technical report TR-CSE-97-42, Dept. Computer Science & 
-			Engineering, Florida Atlantic Univ., 1997. 
-		  <p> <a href="Publications/PRAstar.ps.Z"> Evett, M.P., Hendler, J.A., Mahanti, 
-			A. and Nau, D. "PRA*: Massively Parallel Heuristic Search," <i>J. Parallel 
-			and Distributed Computing</i>, 25, No.2 (March), pp. 133-143, 1995.</a> <a href="Publications/PRAstar-figs.tar.Z">[Figures 
-			for that paper.]</a> 
-		  <p> Evett, M.P., Hendler, J.A. and Spector, L. "Knowledge Representation on 
-			the Connection Machine," <i>Journal of Parallel and Distributed Computing 
-			(JPDC)</i> Vol. 22(2), Aug. 1994, pp 168-184. 
-		  <h3><a href="publications.html">A Fuller List of Publications</a></h3>
-		  <HR>
-		  <h2>Professional Memberships:</h2>
-		  <a href="http://www.aaai.org">American Association for Artificial Intelligence</a>; 
-		  <a href="http://www.acm.org">ACM</a>; <a href="http://www.ieee.org">IEEE</a>; 
-		  <a href="http://www.upe.org">Upsilon Pi Epsilon</a>. 
-		  <h2>Outside Interests:</h2>
-		  <a href="http://www.tu.org">Fly-fishing,</a> baseball (<a href="http://www.scoresheet.com">fantasy</a> 
-		  & <a
-		href="http://www.mlb.com">Real</a>), <a href="BoardGaming.html">strategic 
-		  board-games</a> (and <a href="http://www.boardgamegeek.com">boardgamegeek.com</a>), <a
-		href="http://www.acbl.org/">tournament contract bridge</a>,  <a href="cookieRecipe.jpg">cooking</a>, <a href="Images/photo_Asterix_nov06.JPG">kitties</a>. <a href="Downloads">
-		  <h2>Downloads</h2>
-		  </a> 
-		  </div>
-		  <div class="bottom-pane">
-		  <p>Last modified: "September 29 , 2015  11:21:14 by evett"</p>
-		  </div>
-
+			</div><!--close Expandable pane -->
+		 </div><!-- close Main Pain-->
 	</BODY>
-<HTML>
-<!-- WARNING: The remaining lines in this file are for use with the emacs
-  editor.  They define emacs parameters local to this file.  No lines
-  should follow these.... -->
-<!-- Local Variables: -->
-<!-- time-stamp-line-limit: -11 -->
-<!-- time-stamp-start: "\\(Last modified\\):[ \t]+[\"<]+" -->
-<!-- END: -->
+</HTML>
 
